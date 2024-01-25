@@ -9,8 +9,6 @@ export class VideoUploadRequestJosn {
   @IsNotEmpty()
   @ApiProperty()
   description: string;
-
-  image: File;
 }
 
 export class VideoUploadREquestFiles {

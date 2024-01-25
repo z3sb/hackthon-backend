@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { typeormConfig } from "../config/orm.config";
 import { UserModule } from './user/user.module';
@@ -10,15 +10,16 @@ import { VideoModule } from './video/video.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeormConfig),
-    UserModule,
     JwtModule.register({
       secret: jwtSecret,
       signOptions: {expiresIn: "1d"},
       global: true
     }),
+    UserModule,
     VideoModule
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule{
+}
